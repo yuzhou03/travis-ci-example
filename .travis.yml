@@ -1,3 +1,4 @@
+sudo: true
 language: python
 python:
   - "2.6"
@@ -7,4 +8,8 @@ python:
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
-script: pytest
+script: pytest tests
+
+
+notifications:
+  slack: yumimobi:L3GWHNFixRYLWBiPM6nZ82Hp
