@@ -4,7 +4,7 @@
 import MySQLdb
 import os
 
-os.sys.path.append(os.path.join(os.path.dirname(), "../"))
+os.sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
 
 from util.zplayutil import *
 
