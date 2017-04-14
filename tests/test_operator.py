@@ -16,4 +16,4 @@ def test_add():
 
 
 def test_multiply():
-    assert multiply(2, 5) == 12
+    assert multiply(2, 5) == 10
