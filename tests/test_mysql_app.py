@@ -11,6 +11,14 @@ from app.mysql_app import *
 
 
 def test_count():
-    sql = "select count(*) from date_test;"
+    sql = "select count(*) as cnt from date_test;"
     result = query(sql)
-    assert len(result) == 3, 'records count not  3, failed.'
+    assert result[0].get('cnt'), 'records count not  3, failed.'
+
+
+# def test_count_local():
+#     sql = "select count(*) as cnt from date_test;"
+#     result = query_local(sql)
+#     print result
+#     print type(result)
+#     assert result[0].get('cnt') == 3, 'records count not  3, failed.'

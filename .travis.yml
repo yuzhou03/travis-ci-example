@@ -6,8 +6,6 @@ python:
 services:
   - mysql
 
-before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 before_script:
 - mkdir -p /tmp/logs
@@ -23,3 +21,4 @@ script: pytest tests
 
 notifications:
   slack: yumimobi:L3GWHNFixRYLWBiPM6nZ82Hp
+  slack: yumimobi:SJROQPkCaiM9JZQgIsMUCvWK
