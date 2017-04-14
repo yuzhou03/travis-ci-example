@@ -16,9 +16,10 @@ before_script:
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
-script: pytest tests
-
+script:
+  - coverage run app/operator.py
+  - pytest tests/test_mysql_app.py
 
 notifications:
-  slack: yumimobi:L3GWHNFixRYLWBiPM6nZ82Hp
-  slack: yumimobi:SJROQPkCaiM9JZQgIsMUCvWK
+  slack: yumimobi:L3GWHNFixRYLWBiPM6nZ82Hp # myself
+#  slack: yumimobi:SJROQPkCaiM9JZQgIsMUCvWK # data

@@ -1,2 +1,3 @@
 pytest
 MySQL-python
+codeclimate-test-reporter
