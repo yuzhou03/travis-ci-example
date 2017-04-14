@@ -4,6 +4,17 @@ python:
   - "2.6"
   - "2.7"
 
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+
+before_script:
+- mkdir -p /tmp/logs
+- mysql -uroot -e 'create database test;'
+- mysql -uroot test < tests/date_test.sql
+
 
 # command to install dependencies
 install: "pip install -r requirements.txt"
