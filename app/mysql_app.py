@@ -2,16 +2,23 @@
 # -*- coding: utf-8 -*-
 
 import MySQLdb
+import os
+
+os.sys.path.append(os.path.join(os.path.dirname(), "../"))
 
 from util.zplayutil import *
 
-def connMysql(host='', db='', user='', passwd='', port=0, charset=''):
-    conn = MySQLdb.connect(host="localhost", user="root", passwd="", db="test")
+mysql_config = get_config_dict(section="mysql")
+
+
+def connMysql(host='localhost', db='test', user='root', passwd='', port=3306, charset=''):
+    conn = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db, charset=charset, port=port)
     cur = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     return conn
 
 
-def connMysql_localhost(host='localhost', db='test', user='', passwd='', port=5506, charset='utf8'):
+def connMysql_localhost(host='localhost', db='test', user=mysql_config.get('db_port'),
+                        passwd=mysql_config.get('db_pass'), port=mysql_config.get('db_port'), charset='utf8'):
     conn = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db, port=port)
     cur = conn.cursor(cursorclass=MySQLdb.cursors.DictCursor)
     return conn
